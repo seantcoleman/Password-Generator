@@ -1,76 +1,214 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background: #1F2937;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #1f2937;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    padding: 3rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    max-width: 300px;
-    height: 470px;
+  padding: 3rem;
+  border: 2px solid #374151;
+  border-radius: 1rem;
+  max-width: 400px;
+  background: #111827;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
-    margin:0;
+  margin: 0;
+  text-align: center;
 }
- 
+
 .h1-color {
-    color: #55F991
+  color: #55f991;
 }
 
 h2 {
-    color: #D5D4D8;
-    font-size: 20px;
+  color: #d5d4d8;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #f9fafb;
+  margin: 0 0 0.5rem 0;
+  font-size: 16px;
 }
 
 #length {
-    width: 3rem;
-    text-align: center;
+  width: 4rem;
+  text-align: center;
+  background: #374151;
+  border: 1px solid #4b5563;
+  color: white;
+  border-radius: 4px;
+  padding: 4px;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   opacity: 1;
 }
 
 #passwordGeneratorForm {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 12px;
-    align-items: center;
-    justify-content: cener;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
 }
 
 hr {
-    margin: 15px auto;
-    width: 95%;
-    border: 1px solid #2F3E53;
+  margin: 20px auto;
+  width: 95%;
+  border: 1px solid #2f3e53;
 }
 
 button {
-    height: 42px;
-    border-radius: 6px;
-    padding: 9px, 17px, 9px, 15px;
-    background: #10B981;
-    color: white;
+  height: 42px;
+  border-radius: 6px;
+  padding: 9px 17px;
+  background: #10b981;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background: #059669;
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 #generate {
-    grid-column: span 2;
+  grid-column: span 2;
+  margin-top: 1rem;
+}
+
+.password-section {
+  margin-bottom: 1.5rem;
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.strength-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strength-text {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.strength-bar {
+  width: 60px;
+  height: 6px;
+  background: #374151;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.strength-fill.weak {
+  width: 25%;
+  background: #ef4444;
+}
+.strength-fill.fair {
+  width: 50%;
+  background: #f59e0b;
+}
+.strength-fill.good {
+  width: 75%;
+  background: #10b981;
+}
+.strength-fill.strong {
+  width: 100%;
+  background: #059669;
+}
+
+.password-display-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .passwordDisplay {
-    background: #273549;;
-    text-align: center;
-    border-radius: 6px;
-    line-height: 39px;
-    color: #55F991;
+  flex: 1;
+  background: #273549;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 39px;
+  color: #55f991;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  padding: 0 12px;
+  word-break: break-all;
+  min-height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn {
+  height: 39px;
+  width: 39px;
+  padding: 0;
+  background: #374151;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.copy-btn:hover {
+  background: #4b5563;
+}
+
+.copy-btn.copied {
+  background: #10b981;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  main {
+    padding: 2rem;
+    max-width: 350px;
+  }
+
+  #passwordGeneratorForm {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  #generate {
+    grid-column: 1;
+  }
+
+  .password-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }

@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="index.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Password Generator</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1>Generate a <br><span class="h1-color">random password</span></h1>
-        <h2>Never use an insecure password again.</h2> 
-            
-        <form id="passwordGeneratorForm">
-             
-            <label for="length">Password Length</label>
-            <input type="number" id="length" name="length" min="4" max="30" value="10" required>
-            
-            <label for="uppercase">Include Uppercase Letters</label>          
-            <input type="checkbox" id="uppercase" name="uppercase" checked>
-            
-            <label for="numbers">Include Numbers</label>        
-            <input type="checkbox" id="numbers" name="numbers" checked>
-            
-            <label for="symbols">Include Symbols</label>            
-            <input type="checkbox" id="symbols" name="symbols" checked>
-                        
-            <button type="submit" id="generate">Generate password</button>
-        </form>
-        <hr>
-        <div class="passwordDisplay" id="display1">...</div>
+      <h1>Generate a <br /><span class="h1-color">random password</span></h1>
+      <h2>Never use an insecure password again.</h2>
+
+      <form id="passwordGeneratorForm">
+        <label for="length">Password Length</label>
+        <input
+          type="number"
+          id="length"
+          name="length"
+          min="4"
+          max="50"
+          value="12"
+          required
+        />
+
+        <label for="uppercase">Include Uppercase Letters</label>
+        <input type="checkbox" id="uppercase" name="uppercase" checked />
+
+        <label for="numbers">Include Numbers</label>
+        <input type="checkbox" id="numbers" name="numbers" checked />
+
+        <label for="symbols">Include Symbols</label>
+        <input type="checkbox" id="symbols" name="symbols" checked />
+
+        <button type="submit" id="generate">Generate password</button>
+      </form>
+
+      <hr />
+
+      <div class="password-section">
+        <div class="password-header">
+          <h3>Generated Password</h3>
+          <div class="strength-indicator" id="strengthIndicator">
+            <span class="strength-text" id="strengthText">Strength: </span>
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="password-display-container">
+          <div class="passwordDisplay" id="display1">
+            Click generate to create a password
+          </div>
+          <button id="copyBtn" class="copy-btn" title="Copy to clipboard">
+            📋
+          </button>
+        </div>
+      </div>
     </main>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
