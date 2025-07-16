@@ -1,3 +1,3 @@
 # Password-Generator
 
-Adding a read me
+Create a random password
